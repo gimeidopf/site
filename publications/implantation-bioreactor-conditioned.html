@@ -58,24 +58,58 @@
 
         <section class="figures">
           <article class="figure-card">
-            <img
-              class="figure-image"
-              src="../Publication2_implant.png"
-              alt="Implantation publication figure showing vascular graft implantation results"
-            />
-            <p class="caption">Suggested: long-term patency and flow profile visualization.</p>
+            <div class="figure-media">
+              <img
+                class="figure-image"
+                src="../Publication2_graphabst.png"
+                alt="Implantation publication figure showing graphical abstract and analysis panel"
+              />
+            </div>
+            <p class="caption">Suggested: endothelial coverage and luminal surface quality.</p>
           </article>
           <article class="figure-card">
-            <img
-              class="figure-image"
-              src="../Publication2_graphabst.png"
-              alt="Implantation publication figure showing graphical abstract and analysis panel"
-            />
-            <p class="caption">Suggested: endothelial coverage and luminal surface quality.</p>
+            <div class="figure-media sensitive-media" data-sensitive-key="implantation-surgery">
+              <img
+                class="figure-image"
+                src="../Publication2_implant.png"
+                alt="Implantation publication figure showing vascular graft implantation results"
+              />
+              <div class="sensitive-overlay">
+                <p>Sensitive Content: Animal Surgery Imagery</p>
+                <button type="button" class="sensitive-ok">Okay, show image</button>
+              </div>
+            </div>
+            <p class="caption">Suggested: long-term patency and flow profile visualization.</p>
           </article>
         </section>
       </main>
     </div>
     <script src="publication-motion.js"></script>
+    <script>
+      (() => {
+        const blocks = document.querySelectorAll(".sensitive-media");
+        blocks.forEach((block) => {
+          const key = block.dataset.sensitiveKey || "sensitive-content";
+          const storageKey = `accepted-${key}`;
+          const button = block.querySelector(".sensitive-ok");
+
+          const reveal = () => {
+            block.classList.add("revealed");
+          };
+
+          if (window.sessionStorage.getItem(storageKey) === "true") {
+            reveal();
+            return;
+          }
+
+          if (button) {
+            button.addEventListener("click", () => {
+              window.sessionStorage.setItem(storageKey, "true");
+              reveal();
+            });
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
