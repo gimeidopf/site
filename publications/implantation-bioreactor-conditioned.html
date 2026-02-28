@@ -80,6 +80,13 @@
               </div>
             </div>
             <p class="caption">Suggested: long-term patency and flow profile visualization.</p>
+            <button type="button" class="sensitive-toggle" aria-label="Toggle sensitive image visibility">
+              <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true">
+                <path d="M2 12c2.2-3.8 5.8-6 10-6s7.8 2.2 10 6c-2.2 3.8-5.8 6-10 6s-7.8-2.2-10-6Z"></path>
+                <circle cx="12" cy="12" r="3.2"></circle>
+              </svg>
+              <span>Hide image</span>
+            </button>
           </article>
         </section>
       </main>
@@ -92,20 +99,43 @@
           const key = block.dataset.sensitiveKey || "sensitive-content";
           const storageKey = `accepted-${key}`;
           const button = block.querySelector(".sensitive-ok");
+          const card = block.closest(".figure-card");
+          const toggle = card ? card.querySelector(".sensitive-toggle") : null;
+          const toggleText = toggle ? toggle.querySelector("span") : null;
 
-          const reveal = () => {
-            block.classList.add("revealed");
+          const setRevealed = (isRevealed) => {
+            block.classList.toggle("revealed", isRevealed);
+            if (toggleText) {
+              toggleText.textContent = isRevealed ? "Hide image" : "Show image";
+            }
+            if (toggle) {
+              toggle.setAttribute("aria-pressed", isRevealed ? "true" : "false");
+            }
           };
 
           if (window.sessionStorage.getItem(storageKey) === "true") {
-            reveal();
-            return;
+            setRevealed(true);
+          } else {
+            setRevealed(false);
           }
 
           if (button) {
             button.addEventListener("click", () => {
               window.sessionStorage.setItem(storageKey, "true");
-              reveal();
+              setRevealed(true);
+            });
+          }
+
+          if (toggle) {
+            toggle.addEventListener("click", () => {
+              const isRevealed = block.classList.contains("revealed");
+              if (isRevealed) {
+                window.sessionStorage.removeItem(storageKey);
+                setRevealed(false);
+              } else {
+                window.sessionStorage.setItem(storageKey, "true");
+                setRevealed(true);
+              }
             });
           }
         });

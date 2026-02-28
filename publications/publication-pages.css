@@ -235,6 +235,35 @@ h1 {
   pointer-events: none;
 }
 
+.sensitive-toggle {
+  margin-top: 0.55rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #f7f9f2;
+  color: var(--muted);
+  padding: 0.3rem 0.62rem;
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.sensitive-toggle:hover {
+  background: #eef2e6;
+}
+
+.sensitive-toggle svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .caption {
   margin-top: 0.5rem;
   color: var(--muted);
