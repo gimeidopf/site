@@ -121,3 +121,62 @@
   buildGrid();
   requestAnimationFrame(update);
 })();
+
+(() => {
+  const images = [...document.querySelectorAll(".figure-image")];
+  if (!images.length) return;
+
+  const viewer = document.createElement("div");
+  viewer.className = "image-viewer";
+  viewer.setAttribute("aria-hidden", "true");
+
+  const close = document.createElement("button");
+  close.type = "button";
+  close.className = "image-viewer-close";
+  close.textContent = "Close";
+
+  const enlarged = document.createElement("img");
+  enlarged.alt = "";
+
+  viewer.append(close, enlarged);
+  document.body.appendChild(viewer);
+
+  const closeViewer = () => {
+    viewer.classList.remove("is-open");
+    viewer.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  };
+
+  const openViewer = (img) => {
+    enlarged.src = img.currentSrc || img.src;
+    enlarged.alt = img.alt || "Expanded figure";
+    viewer.classList.add("is-open");
+    viewer.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+
+  images.forEach((img) => {
+    img.addEventListener("click", (event) => {
+      // Sensitive image remains gated by its own overlay until accepted.
+      const sensitive = img.closest(".sensitive-media");
+      if (sensitive && !sensitive.classList.contains("revealed")) {
+        return;
+      }
+      event.preventDefault();
+      openViewer(img);
+    });
+  });
+
+  close.addEventListener("click", closeViewer);
+  viewer.addEventListener("click", (event) => {
+    if (event.target === viewer) {
+      closeViewer();
+    }
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && viewer.classList.contains("is-open")) {
+      closeViewer();
+    }
+  });
+})();

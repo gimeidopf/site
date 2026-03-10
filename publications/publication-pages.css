@@ -181,6 +181,8 @@ h1 {
   object-fit: contain;
   object-position: center;
   background: #f5f7f1;
+  cursor: zoom-in;
+  transition: transform 180ms ease;
 }
 
 .sensitive-media .figure-image {
@@ -262,6 +264,53 @@ h1 {
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.image-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(21, 27, 19, 0.72);
+  backdrop-filter: blur(2px);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 180ms ease, visibility 180ms ease;
+}
+
+.image-viewer.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.image-viewer img {
+  width: min(1120px, 96vw);
+  max-height: 92vh;
+  border-radius: 10px;
+  border: 1px solid #9aaa97;
+  background: #f5f7f1;
+  box-shadow: 0 16px 40px rgba(17, 22, 15, 0.3);
+  object-fit: contain;
+}
+
+.image-viewer-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: 1px solid rgba(247, 248, 243, 0.75);
+  border-radius: 999px;
+  background: rgba(247, 248, 243, 0.14);
+  color: #f7f8f3;
+  padding: 0.35rem 0.78rem;
+  font: inherit;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.image-viewer-close:hover {
+  background: rgba(247, 248, 243, 0.24);
 }
 
 .caption {
