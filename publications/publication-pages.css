@@ -152,6 +152,10 @@ h1 {
   background: #fbfcf8;
 }
 
+.figure-card.single-figure {
+  grid-column: 1 / -1;
+}
+
 .figure-media {
   position: relative;
   border-radius: 8px;
