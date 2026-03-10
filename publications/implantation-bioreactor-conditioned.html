@@ -96,8 +96,6 @@
       (() => {
         const blocks = document.querySelectorAll(".sensitive-media");
         blocks.forEach((block) => {
-          const key = block.dataset.sensitiveKey || "sensitive-content";
-          const storageKey = `accepted-${key}`;
           const button = block.querySelector(".sensitive-ok");
           const card = block.closest(".figure-card");
           const toggle = card ? card.querySelector(".sensitive-toggle") : null;
@@ -113,15 +111,11 @@
             }
           };
 
-          if (window.sessionStorage.getItem(storageKey) === "true") {
-            setRevealed(true);
-          } else {
-            setRevealed(false);
-          }
+          // Always require explicit acceptance on each page load.
+          setRevealed(false);
 
           if (button) {
             button.addEventListener("click", () => {
-              window.sessionStorage.setItem(storageKey, "true");
               setRevealed(true);
             });
           }
@@ -130,10 +124,8 @@
             toggle.addEventListener("click", () => {
               const isRevealed = block.classList.contains("revealed");
               if (isRevealed) {
-                window.sessionStorage.removeItem(storageKey);
                 setRevealed(false);
               } else {
-                window.sessionStorage.setItem(storageKey, "true");
                 setRevealed(true);
               }
             });
