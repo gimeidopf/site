@@ -1,0 +1,151 @@
+:root {
+  --paper: #f7f6f1;
+  --ink: #273024;
+  --muted: #576552;
+  --olive: #5c6a48;
+  --line: #d3dac8;
+  --card: #fbfcf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 8% 8%, rgba(157, 173, 135, 0.14), transparent 30%),
+    radial-gradient(circle at 86% 0%, rgba(130, 111, 91, 0.1), transparent 36%),
+    linear-gradient(180deg, var(--paper), #f2f1ea);
+  line-height: 1.65;
+}
+
+.page {
+  width: min(980px, calc(100% - 2rem));
+  margin: 1.2rem auto 2.4rem;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.top a {
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  padding: 0.4rem 0.72rem;
+  font-size: 0.95rem;
+}
+
+.top a:hover,
+.top a:focus-visible {
+  background: #eef2e5;
+}
+
+.hero {
+  padding: 0.35rem 0.1rem 0.2rem;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.05;
+  color: #1f2b1f;
+}
+
+.meta {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.story {
+  margin-top: 1rem;
+  max-width: 76ch;
+}
+
+.story p {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+}
+
+.film-grid {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.photo-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.72rem;
+  box-shadow: 0 8px 20px rgba(39, 48, 36, 0.06);
+}
+
+.photo-main {
+  grid-column: span 7;
+}
+
+.photo-side {
+  grid-column: span 5;
+  margin-top: 1.05rem;
+}
+
+.photo-slot {
+  border: 1px dashed #a7b69f;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #f5f7f1, #edf2e5);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #617060;
+  padding: 0.9rem;
+  font-size: 0.95rem;
+}
+
+.photo-main .photo-slot {
+  aspect-ratio: 4 / 3;
+}
+
+.photo-side .photo-slot {
+  aspect-ratio: 3 / 4;
+}
+
+.caption {
+  margin-top: 0.58rem;
+  color: #5c6c59;
+  font-size: 0.93rem;
+}
+
+@media (max-width: 860px) {
+  .film-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-main,
+  .photo-side {
+    grid-column: auto;
+    margin-top: 0;
+  }
+
+  .photo-side .photo-slot,
+  .photo-main .photo-slot {
+    aspect-ratio: 4 / 3;
+  }
+}
