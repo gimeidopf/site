@@ -107,6 +107,12 @@ h1 {
   margin-top: 0;
 }
 
+.photo-full {
+  grid-column: 1 / -1;
+  width: min(100%, 760px);
+  justify-self: center;
+}
+
 .photo-slot {
   border: 1px dashed #a7b69f;
   border-radius: 11px;
