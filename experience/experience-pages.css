@@ -149,6 +149,13 @@ h1 {
   object-fit: contain;
 }
 
+.photo-slot img.co-op-photo {
+  width: 72%;
+  max-height: 520px;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
 @media (max-width: 860px) {
   .film-grid {
     grid-template-columns: 1fr;
