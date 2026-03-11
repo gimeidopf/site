@@ -42,6 +42,15 @@
       position: relative;
     }
 
+    .logo-mark {
+      position: absolute;
+      top: 34px;
+      right: 44px;
+      width: 88px;
+      height: 88px;
+      color: #0d2f57;
+    }
+
     .title {
       text-align: center;
       margin: 0;
@@ -126,6 +135,13 @@
         padding: 36px 24px;
       }
 
+      .logo-mark {
+        width: 64px;
+        height: 64px;
+        top: 18px;
+        right: 18px;
+      }
+
       .details,
       .signatures {
         grid-template-columns: 1fr;
@@ -136,6 +152,22 @@
 </head>
 <body>
   <article class="certificate">
+    <svg class="logo-mark" viewBox="0 0 100 100" role="img" aria-label="Makerspace gear tools logo">
+      <g fill="currentColor">
+        <path d="M50 4l9 5 10-2 6 8 10 2 1 10 8 6-3 10 5 9-5 9 3 10-8 6-1 10-10 2-6 8-10-2-9 5-9-5-10 2-6-8-10-2-1-10-8-6 3-10-5-9 5-9-3-10 8-6 1-10 10-2 6-8 10 2z"/>
+      </g>
+      <circle cx="50" cy="50" r="27" fill="#fffdf7"/>
+      <g fill="none" stroke="#0d2f57" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="50" y1="31" x2="50" y2="69"/>
+        <line x1="31" y1="50" x2="69" y2="50"/>
+      </g>
+      <g fill="#0d2f57">
+        <path d="M46 29l2-3h4l2 3-2 6h-4z"/>
+        <path d="M46 71h8l-2 6h-4z"/>
+        <path d="M29 46l-3 2v4l3 2 6-2v-4z"/>
+        <path d="M71 46l3 2v4l-3 2-6-2v-4z"/>
+      </g>
+    </svg>
     <header>
       <h1 class="title">Bambu Labs 3D Printer Training Certificate</h1>
       <p class="subtitle">Makerspace Training Completion</p>
