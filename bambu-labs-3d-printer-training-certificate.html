@@ -51,6 +51,10 @@
       object-fit: contain;
     }
 
+    .certificate-header {
+      transform: translateX(-34px);
+    }
+
     .title {
       text-align: center;
       margin: 0;
@@ -142,6 +146,10 @@
         margin: 0 auto 10px;
       }
 
+      .certificate-header {
+        transform: none;
+      }
+
       .details,
       .signatures {
         grid-template-columns: 1fr;
@@ -153,7 +161,7 @@
 <body>
   <article class="certificate">
     <img class="org-logo" src="assets/logos/hofstra-logo-content.svg" alt="Hofstra logo" />
-    <header>
+    <header class="certificate-header">
       <h1 class="title">Bambu Labs 3D Printer Training Certificate</h1>
       <p class="subtitle">Makerspace Training Completion</p>
     </header>
