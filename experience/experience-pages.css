@@ -104,7 +104,7 @@ h1 {
 
 .photo-side {
   grid-column: span 5;
-  margin-top: 1.05rem;
+  margin-top: 0;
 }
 
 .photo-slot {
@@ -117,14 +117,15 @@ h1 {
   color: #617060;
   padding: 0.9rem;
   font-size: 0.95rem;
+  min-height: 230px;
 }
 
-.photo-main .photo-slot {
-  aspect-ratio: 4 / 3;
-}
-
-.photo-side .photo-slot {
-  aspect-ratio: 3 / 4;
+.photo-slot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 9px;
+  object-fit: contain;
 }
 
 .caption {
