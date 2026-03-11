@@ -118,7 +118,7 @@ h1 {
   border-radius: 0;
   background: rgba(237, 242, 229, 0.42);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   text-align: center;
   color: #617060;
@@ -141,6 +141,7 @@ h1 {
   display: block;
   border-radius: 0;
   object-fit: contain;
+  object-position: top center;
 }
 
 @media (max-width: 860px) {
