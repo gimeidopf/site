@@ -99,11 +99,11 @@ h1 {
 }
 
 .photo-main {
-  grid-column: span 6;
+  grid-column: span 7;
 }
 
 .photo-side {
-  grid-column: span 6;
+  grid-column: span 5;
   margin-top: 0;
 }
 
@@ -116,7 +116,7 @@ h1 {
 .photo-slot {
   border: 0;
   border-radius: 0;
-  background: transparent;
+  background: rgba(237, 242, 229, 0.42);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,6 +129,10 @@ h1 {
   overflow: hidden;
 }
 
+.photo-side .photo-slot {
+  aspect-ratio: 3 / 4;
+}
+
 .photo-slot img {
   width: 100%;
   height: 100%;
@@ -136,7 +140,7 @@ h1 {
   max-height: none;
   display: block;
   border-radius: 0;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 @media (max-width: 860px) {
