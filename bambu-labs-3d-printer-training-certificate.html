@@ -42,6 +42,15 @@
       position: relative;
     }
 
+    .org-logo {
+      position: absolute;
+      top: 28px;
+      right: 42px;
+      width: min(210px, 24%);
+      height: auto;
+      object-fit: contain;
+    }
+
     .title {
       text-align: center;
       margin: 0;
@@ -126,6 +135,13 @@
         padding: 36px 24px;
       }
 
+      .org-logo {
+        position: static;
+        display: block;
+        width: min(220px, 70%);
+        margin: 0 auto 14px;
+      }
+
       .details,
       .signatures {
         grid-template-columns: 1fr;
@@ -136,6 +152,7 @@
 </head>
 <body>
   <article class="certificate">
+    <img class="org-logo" src="assets/logos/hofstra-logo-content.svg" alt="Hofstra logo" />
     <header>
       <h1 class="title">Bambu Labs 3D Printer Training Certificate</h1>
       <p class="subtitle">Makerspace Training Completion</p>
