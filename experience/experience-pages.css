@@ -158,42 +158,61 @@ h1 {
 
 .systems-feed {
   grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: 280px 220px;
   gap: 0;
   align-items: start;
+  max-width: 900px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(237, 242, 229, 0.35);
 }
 
 .systems-feed .photo-slot {
   background: transparent;
+  height: 100%;
 }
 
 .systems-feed .photo-card {
   align-self: start;
+  height: 100%;
 }
 
 .systems-feed .sys-a {
-  grid-column: 1 / span 3;
+  grid-column: 1 / span 2;
+  grid-row: 1;
 }
 
 .systems-feed .sys-e {
-  grid-column: 4 / span 3;
+  grid-column: 3 / span 3;
+  grid-row: 1;
 }
 
 .systems-feed .sys-b {
-  grid-column: 7 / span 6;
+  grid-column: 6 / -1;
+  grid-row: 1 / span 2;
 }
 
 .systems-feed .sys-c {
-  grid-column: 1 / span 5;
+  grid-column: 1 / span 3;
+  grid-row: 2;
 }
 
 .systems-feed .sys-d {
-  grid-column: 6 / span 7;
+  grid-column: 4 / span 2;
+  grid-row: 2;
 }
 
 .systems-feed img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
+}
+
+.systems-feed img.feed-logo {
+  object-fit: contain;
+  background: #f7f6f1;
+  padding: 0.35rem;
 }
 
 @media (max-width: 860px) {
@@ -214,6 +233,8 @@ h1 {
 
   .systems-feed {
     grid-template-columns: 1fr;
+    grid-template-rows: none;
+    max-width: 100%;
   }
 
   .systems-feed .sys-a,
@@ -222,5 +243,7 @@ h1 {
   .systems-feed .sys-d,
   .systems-feed .sys-e {
     grid-column: auto;
+    grid-row: auto;
+    min-height: 220px;
   }
 }
