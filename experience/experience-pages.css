@@ -143,16 +143,16 @@ h1 {
 }
 
 .photo-slot img.feed-logo {
-  width: 76%;
-  max-height: 220px;
-  margin: 0 auto;
+  width: 100%;
+  max-height: none;
+  margin: 0;
   object-fit: contain;
 }
 
 .photo-slot img.co-op-photo {
-  width: 72%;
-  max-height: 520px;
-  margin: 0 auto;
+  width: 100%;
+  max-height: none;
+  margin: 0;
   object-fit: contain;
 }
 
