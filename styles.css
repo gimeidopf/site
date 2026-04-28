@@ -519,6 +519,10 @@ footer {
   font-size: 0.9rem;
 }
 
+.visit-tracker {
+  display: none !important;
+}
+
 .reveal {
   opacity: 1;
   transform: none;

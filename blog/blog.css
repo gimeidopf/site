@@ -1,0 +1,159 @@
+:root {
+  --paper: #f6f5ef;
+  --sage-50: #eef1e8;
+  --line: #cfd7c2;
+  --olive: #586643;
+  --ink: #273024;
+  --muted: #51604a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 8%, rgba(157, 173, 135, 0.18), transparent 34%),
+    linear-gradient(180deg, var(--paper), #f2f1ea);
+  line-height: 1.6;
+}
+
+.leaf-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  width: min(980px, calc(100% - 2rem));
+  margin: 1.25rem auto 2.5rem;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.8rem 1rem;
+  background: rgba(246, 245, 239, 0.92);
+}
+
+.top a {
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  background: #fff;
+}
+
+.top a:hover,
+.top a:focus-visible {
+  background: #eef2e6;
+}
+
+.top .title {
+  margin: 0;
+  color: var(--olive);
+  font-weight: 700;
+}
+
+.blog-shell {
+  margin-top: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.blog-shell h1 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+}
+
+.blog-shell .lead {
+  margin-top: 0.65rem;
+  color: var(--muted);
+  max-width: 64ch;
+}
+
+.posts {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.post-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fbfcf8;
+  padding: 0.85rem 0.9rem;
+}
+
+.post-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.post-title {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+.post-date {
+  margin: 0;
+  color: var(--olive);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.post-body {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+}
+
+.post-list {
+  margin: 0.55rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.post-list li + li {
+  margin-top: 0.2rem;
+}
+
+.blog-note {
+  margin-top: 1rem;
+  border: 1px dashed #9aaa97;
+  border-radius: 10px;
+  background: #f6f8f2;
+  padding: 0.8rem;
+  color: #5f6c57;
+}
+
+@media (max-width: 760px) {
+  .wrap {
+    width: calc(100% - 1.2rem);
+  }
+}
