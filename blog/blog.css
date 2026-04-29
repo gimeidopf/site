@@ -156,6 +156,13 @@ body {
   padding: 0.9rem;
 }
 
+.post-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
 .blog-note {
   margin-top: 1rem;
   border: 1px dashed #9aaa97;
