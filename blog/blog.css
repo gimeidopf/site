@@ -143,6 +143,19 @@ body {
   margin-top: 0.2rem;
 }
 
+.post-media {
+  margin-top: 0.75rem;
+  border: 1px dashed #9aaa97;
+  border-radius: 10px;
+  min-height: 220px;
+  background: #f5f7f1;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #5f6c57;
+  padding: 0.9rem;
+}
+
 .blog-note {
   margin-top: 1rem;
   border: 1px dashed #9aaa97;
