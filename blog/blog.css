@@ -189,13 +189,14 @@ body {
 }
 
 .post-wide-media img {
-  width: min(780px, 100%);
+  width: min(640px, 100%);
   height: auto;
   display: block;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #f5f7f1;
   cursor: zoom-in;
+  overflow: hidden;
 }
 
 .image-viewer {
