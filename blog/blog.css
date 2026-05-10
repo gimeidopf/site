@@ -180,6 +180,11 @@ body {
   justify-self: center;
 }
 
+.ring-media-grid .wide-photo {
+  grid-column: 1 / -1;
+  width: min(780px, 100%);
+}
+
 .blog-note {
   margin-top: 1rem;
   border: 1px dashed #9aaa97;
