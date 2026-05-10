@@ -180,8 +180,18 @@ body {
   justify-self: center;
 }
 
+.ring-media-grid {
+  align-items: start;
+}
+
+.ring-media-grid img:nth-child(1),
+.ring-media-grid img:nth-child(2) {
+  grid-row: span 2;
+}
+
 .ring-media-grid .wide-photo {
   grid-column: 1 / -1;
+  grid-row: 3;
   width: min(780px, 100%);
 }
 
