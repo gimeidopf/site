@@ -182,6 +182,14 @@ body {
   cursor: zoom-in;
 }
 
+.research-design-media-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.research-design-media-grid img {
+  width: min(420px, 100%);
+}
+
 .post-wide-media {
   margin-top: 0.55rem;
   display: grid;
