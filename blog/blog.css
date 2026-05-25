@@ -187,14 +187,15 @@ body {
   justify-content: center;
 }
 
-.research-design-media-grid img:first-child {
-  width: min(300px, 100%);
+.research-design-media-grid .research-design-portrait {
+  width: min(260px, 100%);
+  max-height: 390px;
 }
 
 .research-design-media-grid .research-design-poster {
   grid-column: 1 / -1;
-  width: 100%;
-  max-width: 100%;
+  width: min(680px, 100%);
+  max-height: 300px;
 }
 
 .post-wide-media {
