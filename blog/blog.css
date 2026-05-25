@@ -188,7 +188,7 @@ body {
 }
 
 .research-design-media-grid img:first-child {
-  width: min(520px, 100%);
+  width: min(300px, 100%);
 }
 
 .research-design-media-grid .research-design-poster {
