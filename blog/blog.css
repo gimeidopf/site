@@ -183,17 +183,18 @@ body {
 }
 
 .research-design-media-grid {
-  grid-template-columns: minmax(260px, 480px) minmax(420px, 1fr);
-  align-items: start;
+  grid-template-columns: 1fr;
+  justify-content: center;
 }
 
 .research-design-media-grid img:first-child {
-  width: min(480px, 100%);
+  width: min(520px, 100%);
 }
 
-.research-design-media-grid img:nth-child(2) {
+.research-design-media-grid .research-design-poster {
+  grid-column: 1 / -1;
   width: 100%;
-  max-width: 760px;
+  max-width: 100%;
 }
 
 .post-wide-media {
