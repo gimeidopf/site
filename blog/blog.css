@@ -198,6 +198,19 @@ body {
   max-height: 300px;
 }
 
+.icorps-media-grid {
+  grid-template-columns: minmax(320px, 2fr) minmax(160px, 0.75fr);
+  align-items: center;
+}
+
+.icorps-media-grid img:first-child {
+  width: min(620px, 100%);
+}
+
+.icorps-media-grid img:nth-child(2) {
+  width: min(220px, 100%);
+}
+
 .post-wide-media {
   margin-top: 0.55rem;
   display: grid;
