@@ -15,7 +15,7 @@
 }
 
 :root {
-  --bg: #f6f9f5;
+  --bg: #f8faf8;
   --ink: #1e2320;
   --muted: #5f6661;
   --sage: #3f6a4b;
@@ -87,7 +87,8 @@ p {
 .wrap {
   max-width: var(--measure);
   margin: 0 auto;
-  padding: 0 16px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 /* Header + nav */
@@ -209,23 +210,25 @@ p {
 /* Intro */
 
 main {
-  padding-bottom: 72px;
+  padding-bottom: 112px;
 }
 
 section {
   scroll-margin-top: 72px;
 }
 
+/* Photo with contact links stacked under it, name and bio beside. */
 .intro {
+  --photo: 150px;
   display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 32px;
+  grid-template-columns: max-content 1fr;
+  gap: 40px;
   align-items: start;
   padding-top: 40px;
 }
 
 .headshot {
-  width: 150px;
+  width: var(--photo);
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: 4px;
@@ -248,13 +251,30 @@ section {
   margin-top: 16px;
 }
 
+/* Small links under the photo; Scholar and LinkedIn are set larger so their ends
+   come close to where the longer email ends. Icons share one fixed size. */
 .contact {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px 24px;
-  margin: 16px 0 0;
+  flex-direction: column;
+  gap: 3px;
+  margin: 12px 0 0;
   padding: 0;
   list-style: none;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.contact .email {
+  font-size: 11.5px;
+}
+
+.contact .icon {
+  width: 13px;
+  height: 13px;
+}
+
+.contact a {
+  gap: 7px;
 }
 
 /* Sections */
@@ -426,7 +446,7 @@ h3 {
   place-content: center;
   gap: 12px;
   text-align: center;
-  background: rgba(246, 249, 245, 0.55);
+  background: rgba(248, 250, 248, 0.55);
 }
 
 .sensitive-media.revealed .sensitive-overlay {
@@ -452,7 +472,22 @@ h3 {
 
 /* Small screens */
 
-@media (max-width: 600px) {
+@media (min-width: 1500px) {
+  body {
+    font-size: 19px;
+  }
+
+  :root {
+    --measure: 960px;
+  }
+
+  .intro {
+    --photo: 160px;
+  }
+}
+
+/* Phones: photo beside name and role, links under the role, bio full width below. */
+@media (max-width: 640px) {
   body {
     font-size: 17px;
   }
@@ -463,29 +498,55 @@ h3 {
 
   .intro {
     grid-template-columns: 96px 1fr;
-    gap: 16px 18px;
+    grid-template-areas:
+      "photo name"
+      "photo contact"
+      "bio bio";
+    grid-template-rows: auto 1fr auto;
+    gap: 0 18px;
     padding-top: 24px;
   }
 
+  .intro-side,
+  .intro-main {
+    display: contents;
+  }
+
   .headshot {
+    grid-area: photo;
     width: 96px;
+  }
+
+  .intro .name {
+    grid-area: name;
   }
 
   .intro h1 {
     font-size: 1.6rem;
   }
 
-  .intro .bio,
-  .intro .contact {
-    grid-column: 1 / -1;
+  .intro .role {
+    font-size: 0.95rem;
+    line-height: 1.4;
   }
 
-  .intro-text {
-    display: contents;
+  .contact {
+    grid-area: contact;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2px 16px;
+    margin-top: 8px;
+    font-size: 0.92rem;
   }
 
-  .intro .name {
-    align-self: center;
+  /* Shrinks on very narrow phones so the address never overflows. */
+  .contact .email {
+    font-size: min(0.88rem, calc((100vw - 32px - 96px - 18px - 6px) / 14.5));
+  }
+
+  .intro .bio {
+    grid-area: bio;
+    margin-top: 18px;
   }
 
   h2 {
