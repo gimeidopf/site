@@ -5,278 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Gianna Imeidopf | Biomechanical engineering student, undergraduate researcher, and future graduate student in bioengineering."
+      content="Gianna Imeidopf, senior biomechanical engineering student at Hofstra University researching plant-based vascular grafts."
     />
     <title>Gianna Imeidopf</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href="assets/fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="leaf leaf-a" aria-hidden="true" data-base-rotation="12">
-      <svg class="leaf-svg" viewBox="0 0 220 140" role="presentation">
-        <path class="leaf-blade" d="M16 70C36 26 90 14 190 42C175 92 134 124 64 120C37 118 22 98 16 70Z" />
-        <path class="leaf-rib" d="M22 74C72 69 126 66 179 54" />
-        <path class="leaf-vein" d="M60 68C72 56 80 48 92 42" />
-        <path class="leaf-vein" d="M88 72C102 64 116 58 132 52" />
-        <path class="leaf-vein" d="M112 76C126 72 144 68 160 64" />
-      </svg>
-    </div>
-    <div class="leaf leaf-b" aria-hidden="true" data-base-rotation="-20">
-      <svg class="leaf-svg" viewBox="0 0 220 140" role="presentation">
-        <path class="leaf-blade" d="M24 86C32 44 62 20 112 18C162 16 194 38 206 74C176 106 134 122 82 122C52 120 30 108 24 86Z" />
-        <path class="leaf-rib" d="M34 88C78 78 124 72 194 74" />
-        <path class="leaf-vein" d="M66 82C82 70 96 62 112 56" />
-        <path class="leaf-vein" d="M96 86C112 78 130 72 150 70" />
-        <path class="leaf-vein" d="M124 90C144 86 164 82 184 80" />
-      </svg>
-    </div>
-    <div class="leaf leaf-c" aria-hidden="true" data-base-rotation="38">
-      <svg class="leaf-svg" viewBox="0 0 200 120" role="presentation">
-        <path class="leaf-blade" d="M18 62C42 30 88 14 158 26C146 74 112 98 66 96C44 94 26 80 18 62Z" />
-        <path class="leaf-rib" d="M26 66C70 64 116 60 154 52" />
-        <path class="leaf-vein" d="M62 60C78 50 94 44 112 38" />
-        <path class="leaf-vein" d="M90 64C106 58 124 54 140 50" />
-      </svg>
-    </div>
-    <div class="page-wrap">
-      <header class="site-header">
-        <p class="brand">Gianna Imeidopf</p>
-        <nav>
-          <a class="nav-link" href="#about"><span>About</span><span class="sprout" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation"><path d="M12 21v-7"></path><path d="M12 14c0-3 2.2-5.1 5.2-5.1"></path><path d="M12 14c0-3-2.2-5.1-5.2-5.1"></path><path d="M17.2 8.9c0 1.2-.9 2.1-2.1 2.1"></path><path d="M6.8 8.9c0 1.2.9 2.1 2.1 2.1"></path></svg></span></a>
-          <a class="nav-link" href="#publications"><span>Publications</span><span class="sprout" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation"><path d="M12 21v-7"></path><path d="M12 14c0-3 2.6-5.4 6-5.4"></path><path d="M18 8.6c0 1.4-1 2.5-2.4 2.5"></path><path d="M12 14c0-1.9-1.2-3.1-3-3.1"></path></svg></span></a>
-          <a class="nav-link" href="#experience"><span>Experience</span><span class="sprout" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation"><path d="M12 21v-7"></path><path d="M12 14c0-2.9 2.1-5 5-5"></path><path d="M12 14c0-2.9-2.1-5-5-5"></path><path d="M12 11.8c0-1.8.9-3.2 2.5-3.2"></path></svg></span></a>
-          <a class="nav-link" href="blog/blog.html"><span>Blog</span><span class="sprout" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation"><path d="M12 21v-7"></path><path d="M12 14c0-2.4 1.7-4.2 4.1-4.2"></path><path d="M12 14c0-2.1-1.2-3.4-2.8-3.4"></path><path d="M16.1 9.8c0 1-.8 1.8-1.8 1.8"></path></svg></span></a>
-          <a class="nav-link" href="#contact"><span>Contact</span><span class="sprout" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation"><path d="M12 21v-7"></path><path d="M12 14c0-2.4 1.7-4.1 3.9-4.1"></path><path d="M12 14c0-2 1.1-3.2 2.6-3.2"></path><path d="M15.9 9.9c0 1-.8 1.8-1.8 1.8"></path></svg></span></a>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-pdf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></symbol>
+      <symbol id="i-doi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></symbol>
+      <symbol id="i-scholar" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+    </svg>
+    <header class="site-header">
+      <div class="wrap">
+        <nav class="nav" aria-label="Sections">
+          <a href="#about">About</a>
+          <a href="#publications">Publications</a>
         </nav>
-      </header>
+      </div>
+    </header>
 
-      <main>
-        <div class="top-row">
-          <section id="about" class="hero reveal">
-            <div class="about-intro">
-              <div class="about-copy">
-                <p class="mono">Biomechanical Engineering Student · Hofstra University</p>
-                <h1>My current work includes engineering and creating vascular grafts out of decellularized plant tissue.</h1>
-                <p class="lead">
-                  Vice President of BMES at Hofstra University, with ongoing research in plant-derived vascular
-                  scaffolds and mitochondrial biology in collaboration with the Feinstein Institutes.
-                </p>
-              </div>
-              <div class="about-headshot-wrap" aria-hidden="false">
-                <img class="about-headshot" src="assets/images/Headshot_Image.png" alt="Gianna Imeidopf headshot" />
-              </div>
-              <div class="meta-grid">
-                <p><span>Current:</span> Undergraduate Research Assistant in <a href="https://sites.hofstra.edu/nicholas-merna/about-us/" target="_blank" rel="noreferrer">Dr. Merna's</a> Cell and Tissue Engineering Lab at Hofstra University</p>
-                <p><span>Leadership:</span> Vice President of BMES at Hofstra University; Secretary of Robotics; Founder and President of the Helping Hands Project</p>
-                <p><span>Collaboration:</span> <a href="https://feinstein.northwell.edu/" target="_blank" rel="noreferrer">Feinstein Institutes of Northwell Health</a>, mitochondrial isolation research.<br /><a href="https://pubmed.ncbi.nlm.nih.gov/?term=R15+EB033168%2FEB%2FNIBIB+NIH+HHS%2FUnited+States%5BGrants+and+Funding%5D&sort=date&sort_order=desc" target="_blank" rel="noreferrer" style="text-decoration: underline;">NIH</a>, vascular graft development.<br /><a href="https://news.hofstra.edu/2026/03/03/hofstra-secures-200k-american-heart-association-grant-to-advance-leaf-based-vascular-graft-research/" target="_blank" rel="noreferrer">American Heart Association</a>, bioreactor development.</p>
-              </div>
-            </div>
-          </section>
-        </div>
-        <section id="publications" class="section reveal">
-          <h2>Publications and Presentations</h2>
-          <div class="pub-list">
-            <article class="entry pub">
-              <h3><a class="pub-title-link" href="publications/implantation-bioreactor-conditioned.html">Implantation of Bioreactor-Conditioned Plant-Based Vascular Grafts</a></h3>
-              <p>Journal of Functional Biomaterials (2026)</p>
-              <a class="doi-link" href="https://doi.org/10.3390/jfb17010043" target="_blank" rel="noreferrer">doi:10.3390/jfb17010043</a>
-            </article>
-
-            <article class="entry pub">
-              <h3><a class="pub-title-link" href="publications/optimization-standardization-plant-derived.html">Optimization and Standardization of Plant-Derived Vascular Scaffolds</a></h3>
-              <p>International Journal of Molecular Sciences (2025)</p>
-              <a class="doi-link" href="https://doi.org/10.3390/ijms26062752" target="_blank" rel="noreferrer">doi:10.3390/ijms26062752</a>
-            </article>
-
-            <article class="entry pub">
-              <h3><a class="pub-title-link" href="publications/bmes-2025-poster.html">BMES 2025 Annual Conference Poster (Co-author)</a></h3>
-              <p>Biomedical Engineering Society Annual Conference (2025)</p>
-              <a class="resource-link" href="https://2025bmes.eventscribe.net/searchGlobal.asp" target="_blank" rel="noreferrer">Poster Info</a>
-            </article>
-
-            <article class="entry pub">
-              <h3><a class="pub-title-link" href="publications/bmes-2024-poster.html">BMES 2024 Annual Conference Poster</a></h3>
-              <p>"Optimization of Plant-Derived Extracellular Matrix Structure and Mechanics for Vascular Repair"</p>
-              <a class="resource-link" href="https://2024bmesannual.eventscribe.net/fsPopup.asp?efp=RURZSlBUUUIyMDI3Mw&PresentationID=1504753&rnd=0.5751838&mode=presInfo" target="_blank" rel="noreferrer">Poster Info</a>
-            </article>
-
-            <article class="entry pub">
-              <h3 class="pub-title-static">Undergraduate Research Day (Fall 2024)</h3>
-              <a class="resource-link" href="assets/pdfs/Undergraduate-Research-Day-Fall2024-Cover-Page.pdf" target="_blank" rel="noreferrer">Brochure PDF</a>
-            </article>
-
-            <article class="entry pub">
-              <h3><a class="pub-title-link" href="publications/aspire-2024-summer-presentation.html">ASPiRe 2024 Summer Research Presentation</a></h3>
-              <p>"Optimization of Plant-Derived Extracellular Matrix Structure and Mechanics for Vascular Repair"</p>
-              <a class="resource-link" href="assets/pdfs/2024-ASPiRe-Brochure-FINAL53.pdf" target="_blank" rel="noreferrer">Brochure PDF</a>
-            </article>
+    <main class="wrap">
+      <section id="about" class="intro">
+        <img class="headshot" src="assets/images/headshot.webp" alt="Portrait of Gianna Imeidopf" width="150" height="188" />
+        <div class="intro-text">
+          <div class="name">
+            <h1>Gianna Imeidopf</h1>
+            <p class="role">Biomechanical Engineering, Hofstra University</p>
           </div>
-        </section>
-
-        <section id="experience" class="section reveal">
-          <h2>Experience</h2>
-          <article class="entry">
-            <div class="entry-head">
-              <h3><a class="experience-link" href="experience/bioengineering-research-assistant.html">Bioengineering Research Assistant</a></h3>
-              <p>Hofstra University Cell and Tissue Engineering Lab · Nov 2022 - Present</p>
-            </div>
-            <ul>
-              <li>Histology, bright-field imaging, and image analysis workflows using ImageJ.</li>
-              <li>Decellularization and recellularization optimization for plant-derived scaffolds.</li>
-              <li>Cell culture and wet-lab protocols, including rat model surgery support.</li>
-              <li>First-author presentations at BMES 2024 and Hofstra Undergraduate Research Day.</li>
-            </ul>
-          </article>
-
-          <article class="entry">
-            <div class="entry-head">
-              <h3><a class="experience-link" href="experience/engineering-student-aide.html">Engineering Student Aide</a></h3>
-              <p>Hofstra University MakerSpace · Sep 2023 - Present</p>
-            </div>
-            <ul>
-              <li>Support curriculum and personal engineering projects for students and faculty.</li>
-              <li>Operate and maintain 3D printers, milling systems, and laser cutting equipment.</li>
-              <li>Assist senior design teams and student organizations with prototyping.</li>
-            </ul>
-          </article>
-
-          <article class="entry">
-            <div class="entry-head">
-              <h3><a class="experience-link" href="experience/systems-engineer-coop.html">Systems Engineering Co-Op</a></h3>
-              <p>DEKA Research & Development · Jan 2025 - Aug 2025</p>
-            </div>
-            <ul>
-              <li>Designed, tested, and iterated on medical-device systems through bench testing and cross-functional reviews.</li>
-              <li>Prepared human and porcine organs for controlled device testing sessions.</li>
-              <li>Contributed to glucose biosensor R&D through literature review and wet-lab experimentation.</li>
-              <li>Initiated development of 3D-printed bio-relevant gel matrices for 3D cell seeding workflows.</li>
-            </ul>
-          </article>
-
-          <article class="entry">
-            <div class="entry-head">
-              <h3>Entrepreneurial Lead - NSF I-Corps Regional Program</h3>
-              <p>Hofstra Cell &amp; Tissue Engineering Lab / NSF I-Corps Northeast Hub · 2026</p>
-            </div>
-            <ul>
-              <li>Served as Entrepreneurial Lead on a regional NSF I-Corps team exploring the translational potential of tissue engineering research.</li>
-              <li>Conducted customer discovery interviews, evaluated stakeholder needs, and helped assess early commercialization pathways for lab-developed biomaterials technology.</li>
-            </ul>
-          </article>
-        </section>
-
-        <section class="section reveal">
-          <h2>Leadership and Certifications</h2>
-          <div class="two-col">
-            <article class="entry">
-              <h3>Leadership + Service</h3>
-              <ul>
-                <li>Vice President, BMES at Hofstra University.</li>
-                <li>Secretary, Hofstra Robotics.</li>
-                <li>Member, American Society of Mechanical Engineers (ASME).</li>
-                <li>Treasurer, Hofstra Billiards and Pool Club.</li>
-                <li>Volunteer Tutor (Biology, Trigonometry, Middle School Science and Math).</li>
-                <li>MIT ACCESS participant and conference attendee.</li>
-                <li>Judge, Rube Goldberg Contest (2025).</li>
-                <li>Recipient, IDEALS Nursing Award for supporting diversity in STEM spaces.</li>
-                <li>Recipient, Future PI Award (Hofstra BMES).</li>
-                <li>Recipient, One Degree Award (Hofstra Office of Student Leadership and Engagement).</li>
-                <li>Recipient, Collaborative Program of the Year for the Impact Gala Fundraiser (Hofstra Office of Student Leadership and Engagement).</li>
-              </ul>
-            </article>
-            <article class="entry certifications">
-              <h3>Certifications and Badges</h3>
-              <ul>
-                <li><a href="https://badges.parchment.com/backpack/badges" target="_blank" rel="noreferrer">Introduced Self in the e-NABLE Hub</a></li>
-                <li><a href="https://badges.parchment.com/backpack/badges" target="_blank" rel="noreferrer">Printed an e-NABLE Device</a></li>
-                <li><a href="https://badges.parchment.com/backpack/badges" target="_blank" rel="noreferrer">Phoenix v3 Hand</a></li>
-                <li><a href="https://badges.parchment.com/backpack/badges" target="_blank" rel="noreferrer">Joined the e-NABLE Hub</a></li>
-                <li><a href="assets/images/certifications/nsf-icorps-propelus-certificate-2026.png" target="_blank" rel="noreferrer">NSF I-Corps Propelus Certificate of Completion</a></li>
-                <li><a href="https://www.citiprogram.org/verify/?w138c3696-2c1a-447f-8ed9-22de1594c3be-74391934" target="_blank" rel="noreferrer">Basic Biosafety (CITI)</a></li>
-                <li><a href="https://www.citiprogram.org/verify/?wf7589c6a-1c28-4ff3-9b90-6c8748c66f78-74391935" target="_blank" rel="noreferrer">Animal Biosafety (CITI)</a></li>
-                <li><a href="https://www.citiprogram.org/verify/?w0317faaa-ac03-4163-ab5c-b2af85d2fdcf-56508136" target="_blank" rel="noreferrer">Working with the IACUC (CITI)</a></li>
-                <li><a href="https://www.citiprogram.org/verify/?wfcdf350b-63a1-47e9-b96f-7790d0e174f8-56508137" target="_blank" rel="noreferrer">Working with Rats in Research Settings (CITI)</a></li>
-              </ul>
-            </article>
-          </div>
-        </section>
-
-        <section class="section reveal">
-          <h2>Mentorship, Outreach, and Additional Experience</h2>
-          <div class="two-col">
-            <article class="entry">
-              <h3>Teaching + Mentorship</h3>
-              <ul>
-                <li>Trained 5-7 incoming undergraduate researchers in lab onboarding workflows.</li>
-                <li>Peer Teacher for Intro to Engineering (ENGG 16).</li>
-                <li>Peer Teacher support for Cell and Tissue Engineering coursework.</li>
-                <li>Volunteer Tutor through UPchieve (math, science, and college readiness).</li>
-              </ul>
-            </article>
-            <article class="entry">
-              <h3>Outreach + Engagement</h3>
-              <ul>
-                <li>Delivered STEM-focused talks to high school students across Long Island.</li>
-                <li>Collaborated with the Northwell School of Nursing on outreach and engagement efforts.</li>
-                <li>Founder and President, Helping Hands Project for prosthetic hand donation.</li>
-                <li>e-NABLE volunteer focused on prosthetic hand fabrication and donation.</li>
-                <li>Presented research through ASPIRE programming (Summer 2024).</li>
-                <li>Weekend patient access representative in emergency care settings.</li>
-              </ul>
-            </article>
-          </div>
-        </section>
-
-        <section class="section reveal">
-          <h2>Tools and Ongoing Work</h2>
-          <div class="two-col">
-            <article class="entry">
-              <h3>Technical Toolkit</h3>
-              <ul>
-                <li>CAD: SolidWorks, Siemens NX.</li>
-                <li>Research operations: ImageJ, histology workflows, 2d cell culture, 3d cell culture.</li>
-                <li>Engineering collaboration: Jira, Confluence.</li>
-              </ul>
-            </article>
-            <article class="entry">
-              <h3>Current and Upcoming Directions</h3>
-              <ul>
-                <li>Continuing publication work in vascular grafts and animal-model studies.</li>
-                <li>Developing machine-learning approaches for image analysis in bioengineering workflows.</li>
-                <li>Exploring electrical stimulation methods for vascular graft development.</li>
-                <li>Senior design focus: healing patch concept informed by mechanotransduction.</li>
-                <li>Completed NSF I-Corps training to strengthen translational research thinking.</li>
-              </ul>
-            </article>
-          </div>
-        </section>
-
-        <section id="contact" class="section reveal">
-          <h2>Contact</h2>
-          <p class="lead">
-            I am actively pursuing graduate research opportunities in biomechanics, tissue engineering,
-            and translational bioengineering.
+          <p class="bio">
+            I am a senior undergraduate researcher in
+            <a class="underlined" href="https://sites.hofstra.edu/nicholas-merna/about-us/" target="_blank" rel="noreferrer">Dr. Nick Merna's</a>
+            Cell and Tissue Engineering Lab. My work focuses on building small-diameter blood vessel grafts from plant
+            leaves: we remove the plant's cells to leave a natural scaffold, grow human vascular cells on it, and test
+            how these grafts hold up in the lab and in animal models. I am currently applying to PhD programs in
+            biomedical engineering, with interests in tissue engineering and regenerative medicine.
           </p>
-          <div class="contact-links">
-            <a href="mailto:giannaimeidopf@gmail.com">giannaimeidopf@gmail.com</a>
-            <a href="https://www.linkedin.com/in/gianna-imeidopf" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="https://scholar.google.com/citations?user=yay1u-YAAAAJ&hl=en&oi=ao" target="_blank" rel="noreferrer">Google Scholar</a>
-          </div>
-        </section>
-      </main>
+          <ul class="contact">
+            <li><a href="mailto:giannaimeidopf@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>giannaimeidopf@gmail.com</a></li>
+            <li><a href="https://scholar.google.com/citations?user=yay1u-YAAAAJ&amp;hl=en" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-scholar"/></svg>Google Scholar</a></li>
+            <li><a href="https://www.linkedin.com/in/gianna-imeidopf" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
+          </ul>
+        </div>
+      </section>
 
-      <footer>
-        <p>Last updated <span id="date-stamp"></span></p>
-      </footer>
-    </div>
+      <section id="publications">
+        <h2>Publications</h2>
+        <ol class="entries">
+          <li>
+            <p class="entry-title">Design, Validation, and Early In Vivo Testing of an Electric Bioreactor for Conditioning of Plant-Based Vascular Grafts</p>
+            <p class="authors">A.&nbsp;Ramsamooj, T.&nbsp;Yin, T.&nbsp;Osumanu, G.&nbsp;Lucas, <span class="me">G.&nbsp;Imeidopf</span>, S.&nbsp;Akbar, D.&nbsp;Ahmed, S.&nbsp;Nainan, S.&nbsp;Vajinapelly, F.&nbsp;Krishna, J.&nbsp;C.&nbsp;Vaccaro, S.&nbsp;Ghorayeb, E.&nbsp;Currie, N.&nbsp;Merna</p>
+            <p class="venue"><em>International Journal of Molecular Sciences</em>, 2026</p>
+          </li>
+          <li>
+            <a class="entry-title" href="publications/implantation-bioreactor-conditioned.html">Implantation of Bioreactor-Conditioned Plant-Based Vascular Grafts</a>
+            <p class="authors">T.&nbsp;Yin, N.&nbsp;Gorbenko, C.&nbsp;Karras, S.&nbsp;E.&nbsp;Nainan, <span class="me">G.&nbsp;Imeidopf</span>, A.&nbsp;Ramsamooj, S.&nbsp;Ghorayeb, N.&nbsp;Merna</p>
+            <p class="venue"><em>Journal of Functional Biomaterials</em>, 17(1):43, 2026</p>
+            <p class="entry-links">
+              <a href="assets/pdfs/yin-2026-jfb.pdf" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-pdf"/></svg>PDF</a>
+              <a href="https://doi.org/10.3390/jfb17010043" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-doi"/></svg>DOI</a>
+            </p>
+          </li>
+          <li>
+            <a class="entry-title" href="publications/optimization-standardization-plant-derived.html">Optimization and Standardization of Plant-Derived Vascular Scaffolds</a>
+            <p class="authors"><span class="me">G.&nbsp;Imeidopf</span>, D.&nbsp;Khaimov, S.&nbsp;John, N.&nbsp;Merna</p>
+            <p class="venue"><em>International Journal of Molecular Sciences</em>, 26(6):2752, 2025</p>
+            <p class="entry-links">
+              <a href="assets/pdfs/imeidopf-2025-ijms.pdf" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-pdf"/></svg>PDF</a>
+              <a href="https://doi.org/10.3390/ijms26062752" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-doi"/></svg>DOI</a>
+            </p>
+          </li>
+        </ol>
+
+        <h3 id="posters">Posters</h3>
+        <ol class="entries">
+          <li>
+            <p class="entry-title">Optimization of Bioreactor-Conditioned, Heat-Treated Plant-Based Vascular Grafts</p>
+            <p class="venue">Biomedical Engineering Society (BMES) Annual Meeting, 2026</p>
+          </li>
+          <li>
+            <p class="entry-title">Electrical and Mechanical Preconditioning of Plant-Based Vascular Grafts</p>
+            <p class="venue">Biomedical Engineering Society (BMES) Annual Meeting, 2026</p>
+          </li>
+          <li>
+            <p class="entry-title">Ultrasonic Assessment and Patency Quantification of Bioreactor-Conditioned Plant-Based Vascular Grafts</p>
+            <p class="venue">Biomedical Engineering Society (BMES) Annual Meeting, 2026</p>
+          </li>
+          <li>
+            <p class="entry-title">PulsePatch: A Wearable Mechanotransduction Bandage for Chronic Wound Healing</p>
+            <p class="venue">Biomedical Engineering Society (BMES) Annual Meeting, 2026</p>
+          </li>
+          <li>
+            <a class="entry-title" href="publications/bmes-2025-poster.html">BMES 2025 Annual Meeting Poster</a>
+            <p class="venue">Biomedical Engineering Society (BMES) Annual Meeting, 2025</p>
+          </li>
+          <li>
+            <a class="entry-title" href="publications/bmes-2024-poster.html">Optimization of Plant-Derived Extracellular Matrix Structure and Mechanics for Vascular Repair</a>
+            <p class="venue">Biomedical Engineering Society (BMES) Annual Meeting, 2024</p>
+          </li>
+        </ol>
+      </section>
+    </main>
 
     <script src="script.js"></script>
-	<a class="visit-tracker" href="https://mapmyvisitors.com/web/1c2ti" title="Visit tracker" aria-hidden="true" tabindex="-1"><img src="https://mapmyvisitors.com/map.png?d=UrKey5ofl5iopZkrrvpFAiWzYH4SAuGFFQ7mbrrNrj8&cl=ffffff" alt="" /></a>
+    <a class="visit-tracker" href="https://mapmyvisitors.com/web/1c2ti" title="Visit tracker" aria-hidden="true" tabindex="-1"><img src="https://mapmyvisitors.com/map.png?d=UrKey5ofl5iopZkrrvpFAiWzYH4SAuGFFQ7mbrrNrj8&amp;cl=ffffff" alt="" /></a>
   </body>
 </html>
