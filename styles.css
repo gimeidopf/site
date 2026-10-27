@@ -371,6 +371,105 @@ h3 {
   display: none !important;
 }
 
+/* Leaf at the end of the page: green tissue fades to its vein skeleton once it
+   scrolls into view (script.js adds .decell); hovering brings the green back. */
+
+.leaf-mark {
+  margin: 88px auto 0;
+  text-align: center;
+}
+
+.leaf-mark svg {
+  display: block;
+  width: 120px;
+  height: auto;
+  margin: 0 auto;
+  overflow: visible;
+  transform: rotate(-18deg);
+}
+
+.leaf-mark figcaption {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-style: italic;
+  opacity: 0;
+  transition: opacity 600ms ease;
+}
+
+.leaf-blade {
+  fill: #5f8d5a;
+  transition: fill 1.6s ease-in-out, opacity 1.6s ease-in-out;
+}
+
+.vein {
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke 1.4s ease-in-out;
+}
+
+.vein-midrib {
+  stroke: #9cc092;
+  stroke-width: 1.6;
+}
+
+.vein-secondary {
+  stroke: #93b98a;
+  stroke-width: 0.9;
+}
+
+.vein-tertiary {
+  stroke: #86ad7e;
+  stroke-width: 0.55;
+}
+
+.vein-fine {
+  stroke: #7ba373;
+  stroke-width: 0.4;
+}
+
+.leaf-mark.decell:not(:hover) .leaf-blade {
+  fill: #e6ebe2;
+  opacity: 0.6;
+}
+
+.leaf-mark.decell:not(:hover) .vein-fine {
+  stroke: #bcc5b5;
+  transition-delay: 150ms;
+}
+
+.leaf-mark.decell:not(:hover) .vein-tertiary {
+  stroke: #afb9a7;
+  transition-delay: 300ms;
+}
+
+.leaf-mark.decell:not(:hover) .vein-secondary {
+  stroke: #a1ac97;
+  transition-delay: 450ms;
+}
+
+.leaf-mark.decell:not(:hover) .vein-midrib {
+  stroke: #919d87;
+  transition-delay: 600ms;
+}
+
+.leaf-mark.decell figcaption {
+  opacity: 1;
+  transition-delay: 1.4s;
+}
+
+.leaf-mark:hover .leaf-blade,
+.leaf-mark:hover .vein {
+  transition-duration: 600ms;
+  transition-delay: 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leaf-mark * {
+    transition: none !important;
+  }
+}
+
 /* Detail pages */
 
 .back {

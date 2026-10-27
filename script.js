@@ -189,3 +189,17 @@ window.addEventListener("resize", () => {
 
 // Wait for the web font so the frame matches the final size of the word.
 document.fonts.ready.then(() => setActive(sectionInView()));
+
+// Decellularize the leaf at the end of the page once it is mostly in view.
+const leaf = document.querySelector(".leaf-mark");
+if (leaf) {
+  const seen = new IntersectionObserver(
+    (entries) => {
+      if (!entries[0].isIntersecting) return;
+      seen.disconnect();
+      setTimeout(() => leaf.classList.add("decell"), 400);
+    },
+    { threshold: 0.6 }
+  );
+  seen.observe(leaf);
+}
