@@ -437,15 +437,15 @@ h3 {
    header, opposite the nav, so it never covers any content. */
 @media (max-width: 1139px) {
   .leaf-mark {
-    top: 1px;
+    top: 3px;
     right: auto;
     left: max(18px, calc((100vw - var(--measure)) / 2 + 18px));
-    width: 48px;
+    width: 43px;
   }
 
   /* Lying closer to horizontal, tip pointing right toward the nav. */
   .leaf-mark svg {
-    transform: rotate(62deg);
+    transform: rotate(40deg);
   }
 
   /* Thicker veins so the skeleton still reads at this size. */

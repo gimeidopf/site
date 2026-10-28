@@ -238,7 +238,7 @@ if (leaf && leafSvg) {
       const unit = small ? 0.5 : leaf.offsetWidth / 150;
       const x = (driftX(t) * 7 - push * 0.25) * unit;
       const y = driftY(t) * 9 * unit;
-      const r = (small ? 62 : 18) + sway(t) * (small ? 12 : 7) + push * 0.35;
+      const r = (small ? 40 : 18) + sway(t) * (small ? 12 : 7) + push * 0.35;
       leafSvg.style.transform = `translate(${f(x)}px, ${f(y)}px) rotate(${f(r)}deg)`;
     }
     requestAnimationFrame(frame);
