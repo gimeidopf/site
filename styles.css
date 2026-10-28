@@ -371,18 +371,20 @@ h3 {
   display: none !important;
 }
 
-/* Leaf fixed beside the content: its green tissue fades to the vein skeleton as the
-   page scrolls (script.js sets --p from 0 at the top to 1 at the bottom). Each layer
-   clears over its own stretch of the scroll, finest veins first, midrib last. */
+/* Leaf fixed beside the content. As the page scrolls (script.js sets --p from 0 at the
+   top to 1 at the bottom) it drifts down the margin and its green tissue fades to the
+   vein skeleton, finest veins first, midrib last. script.js also gives it a slow,
+   never-repeating float. */
 
 .leaf-mark {
   --p: 0;
+  --gutter: calc((100vw - var(--measure)) / 2);
+  --size: clamp(96px, calc(var(--gutter) * 0.55), 180px);
   position: fixed;
   z-index: 11;
-  top: 50%;
-  right: calc((100vw - var(--measure)) / 4 - 48px);
-  width: 96px;
-  transform: translateY(-50%);
+  top: calc(12vh + var(--p) * (76vh - var(--size) * 1.375));
+  right: calc((var(--gutter) - var(--size)) / 2);
+  width: var(--size);
   pointer-events: none;
 }
 
@@ -391,7 +393,9 @@ h3 {
   width: 100%;
   height: auto;
   overflow: visible;
-  transform: rotate(-18deg);
+  transform: rotate(18deg);
+  transform-origin: 50% 40%;
+  will-change: transform;
 }
 
 .leaf-blade {
@@ -433,11 +437,15 @@ h3 {
    header, opposite the nav, so it never covers any content. */
 @media (max-width: 1139px) {
   .leaf-mark {
-    top: 12px;
+    top: 1px;
     right: auto;
-    left: max(16px, calc((100vw - var(--measure)) / 2 + 16px));
-    width: 30px;
-    transform: none;
+    left: max(18px, calc((100vw - var(--measure)) / 2 + 18px));
+    width: 48px;
+  }
+
+  /* Lying closer to horizontal, tip pointing right toward the nav. */
+  .leaf-mark svg {
+    transform: rotate(62deg);
   }
 
   /* Thicker veins so the skeleton still reads at this size. */

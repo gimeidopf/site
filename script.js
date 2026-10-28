@@ -177,29 +177,71 @@ window.addEventListener(
     ticking = true;
     requestAnimationFrame(() => {
       ticking = false;
-      updateLeaf();
       if (Date.now() > clickLock) setActive(sectionInView());
     });
   },
   { passive: true }
 );
 
+// Phones fire resize while scrolling as the address bar shows and hides; only a width
+// change can alter the link size, so ignore height-only resizes.
+let lastWidth = window.innerWidth;
 window.addEventListener("resize", () => {
-  updateLeaf();
+  if (window.innerWidth === lastWidth) return;
+  lastWidth = window.innerWidth;
   if (current) buildFrame(current);
 });
 
 // Wait for the web font so the frame matches the final size of the word.
 document.fonts.ready.then(() => setActive(sectionInView()));
 
-// Decellularize the leaf as the page scrolls: 0 at the top, 1 at the bottom.
+// The side leaf: it drifts down and decellularizes as the page scrolls (0 at the top,
+// 1 at the bottom), easing toward the scroll position rather than snapping to it.
+// On top of that it floats: a few slow waves at unrelated speeds, so the drift never
+// settles into a loop, plus a gentle tilt and sideways lag while the page is moving.
 const leaf = document.querySelector(".leaf-mark");
+const leafSvg = leaf?.querySelector("svg");
+const calm = matchMedia("(prefers-reduced-motion: reduce)");
 
-function updateLeaf() {
-  if (!leaf) return;
+function scrollProgress() {
   const max = document.documentElement.scrollHeight - window.innerHeight;
-  const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
-  leaf.style.setProperty("--p", p.toFixed(3));
+  return max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
 }
 
-updateLeaf();
+// Sum of sines with irrational speed ratios and random phases: smooth, bounded, aperiodic.
+function wave(speeds) {
+  const phases = speeds.map(() => rand(0, Math.PI * 2));
+  const total = speeds.reduce((sum, [, weight]) => sum + weight, 0);
+  return (t) => speeds.reduce((sum, [speed, weight], i) => sum + Math.sin(t * speed + phases[i]) * weight, 0) / total;
+}
+
+if (leaf && leafSvg) {
+  const driftX = wave([[0.23, 1], [0.37 * Math.SQRT2, 0.6], [0.11 * Math.E, 0.4]]);
+  const driftY = wave([[0.19, 1], [0.29 * Math.PI / 2, 0.5], [0.53 / Math.SQRT2, 0.3]]);
+  const sway = wave([[0.17 * Math.E / 2, 1], [0.31, 0.6], [0.07 * Math.PI, 0.5]]);
+  let shown = scrollProgress();
+  let lastY = window.scrollY;
+  let push = 0;
+
+  const frame = (now) => {
+    const t = now / 1000;
+    shown += (scrollProgress() - shown) * 0.06;
+    // Scrolling speed, smoothed, becomes a lean and a slight sideways slip.
+    const speed = Math.max(-40, Math.min(40, window.scrollY - lastY));
+    lastY = window.scrollY;
+    push += (speed - push) * 0.04;
+    leaf.style.setProperty("--p", shown.toFixed(4));
+
+    if (!calm.matches) {
+      // The small header leaf moves relatively more so its float is still noticeable.
+      const small = leaf.offsetWidth < 60;
+      const unit = small ? 0.5 : leaf.offsetWidth / 150;
+      const x = (driftX(t) * 7 - push * 0.25) * unit;
+      const y = driftY(t) * 9 * unit;
+      const r = (small ? 62 : 18) + sway(t) * (small ? 12 : 7) + push * 0.35;
+      leafSvg.style.transform = `translate(${f(x)}px, ${f(y)}px) rotate(${f(r)}deg)`;
+    }
+    requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+}
