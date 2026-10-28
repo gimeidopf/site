@@ -371,103 +371,80 @@ h3 {
   display: none !important;
 }
 
-/* Leaf at the end of the page: green tissue fades to its vein skeleton once it
-   scrolls into view (script.js adds .decell); hovering brings the green back. */
+/* Leaf fixed beside the content: its green tissue fades to the vein skeleton as the
+   page scrolls (script.js sets --p from 0 at the top to 1 at the bottom). Each layer
+   clears over its own stretch of the scroll, finest veins first, midrib last. */
 
 .leaf-mark {
-  margin: 88px auto 0;
-  text-align: center;
+  --p: 0;
+  position: fixed;
+  z-index: 11;
+  top: 50%;
+  right: calc((100vw - var(--measure)) / 4 - 48px);
+  width: 96px;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .leaf-mark svg {
   display: block;
-  width: 120px;
+  width: 100%;
   height: auto;
-  margin: 0 auto;
   overflow: visible;
   transform: rotate(-18deg);
 }
 
-.leaf-mark figcaption {
-  margin-top: 14px;
-  color: var(--muted);
-  font-size: 0.85rem;
-  font-style: italic;
-  opacity: 0;
-  transition: opacity 600ms ease;
-}
-
 .leaf-blade {
-  fill: #5f8d5a;
-  transition: fill 1.6s ease-in-out, opacity 1.6s ease-in-out;
+  --k: clamp(0, var(--p) / 0.75, 1);
+  fill: color-mix(in srgb, #e6ebe2 calc(var(--k) * 100%), #5f8d5a);
+  opacity: calc(1 - var(--k) * 0.4);
 }
 
 .vein {
   fill: none;
   stroke-linecap: round;
-  transition: stroke 1.4s ease-in-out;
-}
-
-.vein-midrib {
-  stroke: #9cc092;
-  stroke-width: 1.6;
-}
-
-.vein-secondary {
-  stroke: #93b98a;
-  stroke-width: 0.9;
-}
-
-.vein-tertiary {
-  stroke: #86ad7e;
-  stroke-width: 0.55;
 }
 
 .vein-fine {
-  stroke: #7ba373;
+  --k: clamp(0, (var(--p) - 0.1) / 0.7, 1);
+  stroke: color-mix(in srgb, #bcc5b5 calc(var(--k) * 100%), #7ba373);
   stroke-width: 0.4;
 }
 
-.leaf-mark.decell:not(:hover) .leaf-blade {
-  fill: #e6ebe2;
-  opacity: 0.6;
+.vein-tertiary {
+  --k: clamp(0, (var(--p) - 0.25) / 0.63, 1);
+  stroke: color-mix(in srgb, #afb9a7 calc(var(--k) * 100%), #86ad7e);
+  stroke-width: 0.55;
 }
 
-.leaf-mark.decell:not(:hover) .vein-fine {
-  stroke: #bcc5b5;
-  transition-delay: 150ms;
+.vein-secondary {
+  --k: clamp(0, (var(--p) - 0.4) / 0.55, 1);
+  stroke: color-mix(in srgb, #a1ac97 calc(var(--k) * 100%), #93b98a);
+  stroke-width: 0.9;
 }
 
-.leaf-mark.decell:not(:hover) .vein-tertiary {
-  stroke: #afb9a7;
-  transition-delay: 300ms;
+.vein-midrib {
+  --k: clamp(0, (var(--p) - 0.55) / 0.45, 1);
+  stroke: color-mix(in srgb, #919d87 calc(var(--k) * 100%), #9cc092);
+  stroke-width: 1.6;
 }
 
-.leaf-mark.decell:not(:hover) .vein-secondary {
-  stroke: #a1ac97;
-  transition-delay: 450ms;
-}
-
-.leaf-mark.decell:not(:hover) .vein-midrib {
-  stroke: #919d87;
-  transition-delay: 600ms;
-}
-
-.leaf-mark.decell figcaption {
-  opacity: 1;
-  transition-delay: 1.4s;
-}
-
-.leaf-mark:hover .leaf-blade,
-.leaf-mark:hover .vein {
-  transition-duration: 600ms;
-  transition-delay: 0s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .leaf-mark * {
-    transition: none !important;
+/* Without room in the side margin, the leaf sits small at the left of the sticky
+   header, opposite the nav, so it never covers any content. */
+@media (max-width: 1139px) {
+  .leaf-mark {
+    top: 12px;
+    right: auto;
+    left: max(16px, calc((100vw - var(--measure)) / 2 + 16px));
+    width: 30px;
+    transform: none;
   }
+
+  /* Thicker veins so the skeleton still reads at this size. */
+  .vein-fine { stroke-width: 0.9; }
+  .vein-tertiary { stroke-width: 1.1; }
+  .vein-secondary { stroke-width: 1.7; }
+  .vein-midrib { stroke-width: 2.6; }
 }
 
 /* Detail pages */
@@ -647,6 +624,7 @@ h3 {
 
 @media print {
   .site-header,
+  .leaf-mark,
   .entry-links,
   .back {
     display: none;

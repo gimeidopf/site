@@ -177,6 +177,7 @@ window.addEventListener(
     ticking = true;
     requestAnimationFrame(() => {
       ticking = false;
+      updateLeaf();
       if (Date.now() > clickLock) setActive(sectionInView());
     });
   },
@@ -184,22 +185,21 @@ window.addEventListener(
 );
 
 window.addEventListener("resize", () => {
+  updateLeaf();
   if (current) buildFrame(current);
 });
 
 // Wait for the web font so the frame matches the final size of the word.
 document.fonts.ready.then(() => setActive(sectionInView()));
 
-// Decellularize the leaf at the end of the page once it is mostly in view.
+// Decellularize the leaf as the page scrolls: 0 at the top, 1 at the bottom.
 const leaf = document.querySelector(".leaf-mark");
-if (leaf) {
-  const seen = new IntersectionObserver(
-    (entries) => {
-      if (!entries[0].isIntersecting) return;
-      seen.disconnect();
-      setTimeout(() => leaf.classList.add("decell"), 400);
-    },
-    { threshold: 0.6 }
-  );
-  seen.observe(leaf);
+
+function updateLeaf() {
+  if (!leaf) return;
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+  leaf.style.setProperty("--p", p.toFixed(3));
 }
+
+updateLeaf();
