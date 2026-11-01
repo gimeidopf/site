@@ -195,7 +195,7 @@ window.addEventListener("resize", () => {
 // Wait for the web font so the frame matches the final size of the word.
 document.fonts.ready.then(() => setActive(sectionInView()));
 
-// The side leaf: it drifts down and decellularizes as the page scrolls (0 at the top,
+// The header leaf: it decellularizes as the page scrolls (0 at the top,
 // 1 at the bottom), easing toward the scroll position rather than snapping to it.
 // On top of that it floats: a few slow waves at unrelated speeds, so the drift never
 // settles into a loop, plus a gentle tilt and sideways lag while the page is moving.
@@ -233,12 +233,9 @@ if (leaf && leafSvg) {
     leaf.style.setProperty("--p", shown.toFixed(4));
 
     if (!calm.matches) {
-      // The small header leaf moves relatively more so its float is still noticeable.
-      const small = leaf.offsetWidth < 60;
-      const unit = small ? 0.5 : leaf.offsetWidth / 150;
-      const x = (driftX(t) * 7 - push * 0.25) * unit;
-      const y = driftY(t) * 9 * unit;
-      const r = (small ? 40 : 18) + sway(t) * (small ? 12 : 7) + push * 0.35;
+      const x = (driftX(t) * 7 - push * 0.25) * 0.5;
+      const y = driftY(t) * 9 * 0.5;
+      const r = 40 + sway(t) * 12 + push * 0.35;
       leafSvg.style.transform = `translate(${f(x)}px, ${f(y)}px) rotate(${f(r)}deg)`;
     }
     requestAnimationFrame(frame);

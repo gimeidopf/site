@@ -371,29 +371,28 @@ h3 {
   display: none !important;
 }
 
-/* Leaf fixed beside the content. As the page scrolls (script.js sets --p from 0 at the
-   top to 1 at the bottom) it drifts down the margin and its green tissue fades to the
-   vein skeleton, finest veins first, midrib last. script.js also gives it a slow,
-   never-repeating float. */
+/* Leaf sitting small at the left of the sticky header, opposite the nav, so it never
+   covers any content. As the page scrolls (script.js sets --p from 0 at the top to 1 at
+   the bottom) its green tissue fades to the vein skeleton, finest veins first, midrib
+   last. script.js also gives it a slow, never-repeating float. */
 
 .leaf-mark {
   --p: 0;
-  --gutter: calc((100vw - var(--measure)) / 2);
-  --size: clamp(96px, calc(var(--gutter) * 0.55), 180px);
   position: fixed;
   z-index: 11;
-  top: calc(12vh + var(--p) * (76vh - var(--size) * 1.375));
-  right: calc((var(--gutter) - var(--size)) / 2);
-  width: var(--size);
+  top: 3px;
+  left: max(18px, calc((100vw - var(--measure)) / 2 + 18px));
+  width: 43px;
   pointer-events: none;
 }
 
+/* Lying closer to horizontal, tip pointing right toward the nav. */
 .leaf-mark svg {
   display: block;
   width: 100%;
   height: auto;
   overflow: visible;
-  transform: rotate(18deg);
+  transform: rotate(40deg);
   transform-origin: 50% 40%;
   will-change: transform;
 }
@@ -404,6 +403,7 @@ h3 {
   opacity: calc(1 - var(--k) * 0.4);
 }
 
+/* Veins drawn thick so the skeleton still reads at this small size. */
 .vein {
   fill: none;
   stroke-linecap: round;
@@ -412,47 +412,25 @@ h3 {
 .vein-fine {
   --k: clamp(0, (var(--p) - 0.1) / 0.7, 1);
   stroke: color-mix(in srgb, #bcc5b5 calc(var(--k) * 100%), #7ba373);
-  stroke-width: 0.4;
+  stroke-width: 0.9;
 }
 
 .vein-tertiary {
   --k: clamp(0, (var(--p) - 0.25) / 0.63, 1);
   stroke: color-mix(in srgb, #afb9a7 calc(var(--k) * 100%), #86ad7e);
-  stroke-width: 0.55;
+  stroke-width: 1.1;
 }
 
 .vein-secondary {
   --k: clamp(0, (var(--p) - 0.4) / 0.55, 1);
   stroke: color-mix(in srgb, #a1ac97 calc(var(--k) * 100%), #93b98a);
-  stroke-width: 0.9;
+  stroke-width: 1.7;
 }
 
 .vein-midrib {
   --k: clamp(0, (var(--p) - 0.55) / 0.45, 1);
   stroke: color-mix(in srgb, #919d87 calc(var(--k) * 100%), #9cc092);
-  stroke-width: 1.6;
-}
-
-/* Without room in the side margin, the leaf sits small at the left of the sticky
-   header, opposite the nav, so it never covers any content. */
-@media (max-width: 1139px) {
-  .leaf-mark {
-    top: 3px;
-    right: auto;
-    left: max(18px, calc((100vw - var(--measure)) / 2 + 18px));
-    width: 43px;
-  }
-
-  /* Lying closer to horizontal, tip pointing right toward the nav. */
-  .leaf-mark svg {
-    transform: rotate(40deg);
-  }
-
-  /* Thicker veins so the skeleton still reads at this size. */
-  .vein-fine { stroke-width: 0.9; }
-  .vein-tertiary { stroke-width: 1.1; }
-  .vein-secondary { stroke-width: 1.7; }
-  .vein-midrib { stroke-width: 2.6; }
+  stroke-width: 2.6;
 }
 
 /* Detail pages */
